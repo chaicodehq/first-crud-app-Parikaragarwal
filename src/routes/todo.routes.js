@@ -23,5 +23,13 @@ const router = express.Router();
  */
 
 // Your routes here
+router.post('/',createTodo);
+router.get('/',listTodos);
+
+router.use('/:id',validateObjectId);
+router.get("/:id",getTodo);
+router.patch('/:id',updateTodo);
+router.patch('/:id/toggle',toggleTodo);
+router.delete('/:id',deleteTodo);
 
 export default router;

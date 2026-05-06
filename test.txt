@@ -1,0 +1,72 @@
+
+> first-crud-app@1.0.0 test
+> NODE_OPTIONS=--experimental-vm-modules jest --runInBand
+
+(node:1222297) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/visible/04-list.spec.js
+  List Todos
+    ✓ GET /api/todos returns empty array when no todos exist (47 ms)
+    ✓ GET /api/todos returns all todos with pagination meta (28 ms)
+    ✓ GET /api/todos supports pagination with page parameter (34 ms)
+    ✓ GET /api/todos supports custom limit parameter (47 ms)
+    ✓ GET /api/todos defaults to page 1 and limit 10 (20 ms)
+    ✓ GET /api/todos filters by completed=true (15 ms)
+    ✓ GET /api/todos filters by completed=false (19 ms)
+    ✓ GET /api/todos filters by priority (17 ms)
+    ✓ GET /api/todos searches title (case-insensitive) (24 ms)
+    ✓ GET /api/todos search is case-insensitive (21 ms)
+    ✓ GET /api/todos sorts by createdAt descending (newest first) (35 ms)
+    ✓ GET /api/todos combines filters and pagination (35 ms)
+    ✓ GET /api/todos handles page beyond available pages (10 ms)
+
+PASS tests/visible/05-update-delete.spec.js
+  Get Single Todo
+    ✓ GET /api/todos/:id returns todo by id (39 ms)
+    ✓ GET /api/todos/:id returns 404 for non-existent id (7 ms)
+    ✓ GET /api/todos/:id returns 400 for invalid id format (4 ms)
+  Update Todo
+    ✓ PATCH /api/todos/:id updates todo fields (20 ms)
+    ✓ PATCH /api/todos/:id updates only provided fields (8 ms)
+    ✓ PATCH /api/todos/:id validates updated fields (7 ms)
+    ✓ PATCH /api/todos/:id returns 404 for non-existent todo (6 ms)
+    ✓ PATCH /api/todos/:id returns 400 for invalid id format (3 ms)
+  Toggle Todo Completed
+    ✓ PATCH /api/todos/:id/toggle flips completed from false to true (11 ms)
+    ✓ PATCH /api/todos/:id/toggle flips completed from true to false (9 ms)
+    ✓ PATCH /api/todos/:id/toggle can be called multiple times (19 ms)
+    ✓ PATCH /api/todos/:id/toggle returns 404 for non-existent todo (6 ms)
+    ✓ PATCH /api/todos/:id/toggle returns 400 for invalid id format (3 ms)
+  Delete Todo
+    ✓ DELETE /api/todos/:id removes todo from database (12 ms)
+    ✓ DELETE /api/todos/:id returns 404 for non-existent todo (5 ms)
+    ✓ DELETE /api/todos/:id returns 400 for invalid id format (4 ms)
+    ✓ DELETE /api/todos/:id does not affect other todos (12 ms)
+
+PASS tests/visible/03-create.spec.js
+  Create Todo
+    ✓ POST /api/todos creates todo with minimal data (36 ms)
+    ✓ POST /api/todos creates todo with all fields (7 ms)
+    ✓ POST /api/todos validates title is required (6 ms)
+    ✓ POST /api/todos validates title minimum length (3 chars) (4 ms)
+    ✓ POST /api/todos validates title maximum length (120 chars) (5 ms)
+    ✓ POST /api/todos validates priority enum values (4 ms)
+    ✓ POST /api/todos accepts valid priority values (14 ms)
+    ✓ POST /api/todos trims title whitespace (6 ms)
+    ✓ POST /api/todos sets default values correctly (5 ms)
+
+PASS tests/visible/02-connect.spec.js
+  Database Connection
+    ✓ connectDB establishes connection successfully (563 ms)
+    ✓ connectDB throws error when URI is missing (3 ms)
+    ✓ connectDB throws error for empty string URI
+
+PASS tests/visible/01-health.spec.js
+  Health Check
+    ✓ GET /health returns 200 status with ok:true (9 ms)
+
+Test Suites: 5 passed, 5 total
+Tests:       43 passed, 43 total
+Snapshots:   0 total
+Time:        5.041 s, estimated 6 s
+Ran all test suites.
